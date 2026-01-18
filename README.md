@@ -1,11 +1,11 @@
 
 🎬 Movie Watchlist
 
-A modern and fun React app to manage your movie watchlist. Add movies, mark them as watched or unwatched, filter by status, and see funny live stats!
+A modern and fun React app to manage your movie watchlist. Add movies, mark them as watched or unwatched, filter by status, and see live stats!
 
 📝 Features
 
-Add new movies (title + genre + more options if needed)
+Add new movies (title + genre)
 
 Mark movies as watched or unwatched
 
