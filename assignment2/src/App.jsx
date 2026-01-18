@@ -12,12 +12,7 @@ export default function App() {
   function addMovie(title, genre) {
     setMovies([
       ...movies,
-      {
-        id: Date.now(),
-        title,
-        genre,
-        watched: false,
-      },
+      { id: Date.now(), title, genre, watched: false },
     ]);
   }
 
@@ -33,7 +28,6 @@ export default function App() {
     );
   }
 
-
   const filteredMovies = movies.filter((movie) => {
     if (filter === "Watched") return movie.watched;
     if (filter === "Unwatched") return !movie.watched;
@@ -41,18 +35,20 @@ export default function App() {
   });
 
   return (
-    <div className="app">
-      <h1> Movie Watch list</h1>
+   <div className="app">
+  <h1>Movie Tracker</h1>
 
-      <AddMovieForm onAdd={addMovie} />
-      <FilterControls filter={filter} setFilter={setFilter} />
+  <div className="left-panel">
+    <AddMovieForm onAdd={addMovie} />
       <Summary movies={movies} />
+  </div>
 
-      <MovieList
-        movies={filteredMovies}
-        onDelete={deleteMovie}
-        onToggle={toggleWatched}
-      />
-    </div>
+  <div className="right-panel">
+    <FilterControls filter={filter} setFilter={setFilter} />
+    <MovieList movies={filteredMovies} onDelete={deleteMovie} onToggle={toggleWatched} />
+  </div>
+
+
+</div>
   );
 }

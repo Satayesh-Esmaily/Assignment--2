@@ -1,20 +1,19 @@
 export default function MovieItem({ movie, onDelete, onToggle }) {
   return (
-   <div className="movie-item">
-  <div className="movie-info">
-    <h4>{movie.title}</h4>
-    <small>{movie.genre}</small>
-  </div>
+    <div className="movie-item">
+      <div className="movie-info">
+        <h4>{movie.title}</h4>
+        <p>Genre: {movie.genre}</p>
+        <p>Status: {movie.watched ? "Watched" : "Unwatched"}</p>
+      </div>
 
-  <span className={movie.watched ? "watched" : "unwatched"}>
-    {movie.watched ? "Watched" : "Unwatched"}
-  </span>
+      <div className="actions">
+      <button onClick={() => onToggle(movie.id)}>
+      {movie.watched ? "Mark as Unwatched" : "Mark as Watched"}
+      </button>
 
-  <div className="actions">
-    <button onClick={() => onToggle(movie.id)}>Toggle</button>
-    <button onClick={() => onDelete(movie.id)}>Delete</button>
-  </div>
-</div>
-
+        <button onClick={() => onDelete(movie.id)}>Delete</button>
+      </div>
+    </div>
   );
 }
